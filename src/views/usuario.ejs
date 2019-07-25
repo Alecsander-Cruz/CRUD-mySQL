@@ -1,0 +1,71 @@
+<% include partials/_header %>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-7">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr style="background-color: #111">
+                        <td style="width:15%">Nº</td>
+                        <td style="width:50%">Nome</td>
+                        <td style="width:15%">Idade</td>
+                        <td style="width:15%">UF</td>
+                        <td style="width:20%">Ações</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (data) {%>
+                        <% for (var i=0; i<data.length; i++) { %>
+                            <tr>
+                                <td><%= (i+1) %></td>
+                                <td><%= data[i].Nome %></td>
+                                <td><%= data[i].Idade %></td>
+                                <td><%= data[i].UF %></td>
+                                <td>
+                                    <a href="/update/<%= data[i].UserID %>" class="btn btn-info">Atualizar</a>
+                                    <a class="row mt-1"></a>
+                                    <a href="/delete/<%= data[i].UserID %>" class="btn btn-danger">Deletar</a>    
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %>   
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-5">
+            <div class="card">
+                    <form action="/add" method="post">
+
+                        <div class="form-group">
+                            <input type="text" name="Nome" placeholder="Nome" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="number"  name="Idade" placeholder="Idade" class="form-control">
+                        </div>
+                        <div class="form-group">
+                                <input type="text" name="UF" placeholder="Estado" class="form-control">
+                        </div>
+                        <!--<select name="uf" placeholder="Estado">
+                                <option disabled selected>Estado</option>
+                                <option>PB</option>
+                                <option>PE</option>
+                                <option>RN</option>
+                                <option>CE</option>
+                        </select>-->
+                        <button type="submit" class="btn btn-primary">
+                            Salvar
+                        </button>
+        
+                    </form>
+            </div>
+
+
+            </div>
+
+    </div>
+</div>
+
+
+
+<% include partials/_footer %>

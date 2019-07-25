@@ -1,0 +1,37 @@
+<% include partials/_header %>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/update/<%= data.UserID %>" method="post">
+
+                        <div class="form-group">
+                            <input type="text" name="Nome" value="<%= data.Nome %>" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="number"  name="Idade" value="<%= data.Idade %>" class="form-control">
+                        </div>
+                        <div class="form-group">
+                                <input type="text" name="UF" value="<%= data.UF %>" class="form-control">
+                        </div>
+                        <!--<select name="uf" placeholder="Estado">
+                                <option disabled selected>Estado</option>
+                                <option>PB</option>
+                                <option>PE</option>
+                                <option>RN</option>
+                                <option>CE</option>
+                        </select>-->
+                        <button type="submit" class="btn btn-primary">
+                            Salvar
+                        </button>
+        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include partials/_footer %>
